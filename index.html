@@ -2,30 +2,7 @@
 <link rel="stylesheet" href="/css/reset.css">
 <script src="/js/portfolio.js"></script>
 
-<script>
-    // 모든 include-html 속성을 가진 div 요소를 찾고 로드하는 함수
-    function includeHTML() {
-        const elements = document.querySelectorAll('[include-html]');
-        elements.forEach(element => {
-            const file = element.getAttribute("include-html"); // 속성에서 파일 경로를 가져옴
-            if (file) {
-                const xhr = new XMLHttpRequest();
-                xhr.open("GET", file, true);
-                xhr.onload = function () {
-                    if (xhr.status == 200) {
-                        element.innerHTML = xhr.responseText; // 파일 내용을 해당 div에 삽입
-                    } else {
-                        console.error("파일을 불러오는 데 실패했습니다.");
-                    }
-                };
-                xhr.send();
-            }
-        });
-    }
 
-    // 페이지 로딩 시 includeHTML 함수 호출
-    window.onload = includeHTML;
-</script>
 
 <body>
     <div class="portfoliobody">
@@ -83,4 +60,29 @@
             block: 'start' // 페이지의 상단으로 스크롤
         });
     }
+</script>
+
+<script>
+    // 모든 include-html 속성을 가진 div 요소를 찾고 로드하는 함수
+    function includeHTML() {
+        const elements = document.querySelectorAll('[include-html]');
+        elements.forEach(element => {
+            const file = element.getAttribute("include-html"); // 속성에서 파일 경로를 가져옴
+            if (file) {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", file, true);
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        element.innerHTML = xhr.responseText; // 파일 내용을 해당 div에 삽입
+                    } else {
+                        console.error("파일을 불러오는 데 실패했습니다.");
+                    }
+                };
+                xhr.send();
+            }
+        });
+    }
+
+    // 페이지 로딩 시 includeHTML 함수 호출
+    window.onload = includeHTML;
 </script>
