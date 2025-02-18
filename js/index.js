@@ -40,4 +40,17 @@ window.onscroll = function() {
   }
 
 
-  
+
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/html/portfolioheader.html") // HTML 파일 가져오기
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to load");
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById("portfolio-header").innerHTML = data; // 삽입
+        })
+        .catch(error => console.error("Error loading HTML:", error));
+});
