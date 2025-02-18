@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/css/portfolio.css">
+<link rel="stylesheet" href="/css/reset.css">
+<script src="/js/portfolio.js"></script>
+
+<script>
+    // 모든 include-html 속성을 가진 div 요소를 찾고 로드하는 함수
+    function includeHTML() {
+        const elements = document.querySelectorAll('[include-html]');
+        elements.forEach(element => {
+            const file = element.getAttribute("include-html"); // 속성에서 파일 경로를 가져옴
+            if (file) {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", file, true);
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        element.innerHTML = xhr.responseText; // 파일 내용을 해당 div에 삽입
+                    } else {
+                        console.error("파일을 불러오는 데 실패했습니다.");
+                    }
+                };
+                xhr.send();
+            }
+        });
+    }
+
+    // 페이지 로딩 시 includeHTML 함수 호출
+    window.onload = includeHTML;
+</script>
+
+<body>
+    <div class="portfoliobody">
+        <!-- HTML 파일을 동적으로 로드할 위치 -->
+        <div include-html="/html/portfolioheader.html"></div>
+
+        <div class="page page1" id="page1">
+            <div class="portfolio1">
+                <h1>제 2의 새로운 선택</h1>
+                <h3>개발자의 봄</h3>
+                <img src="/img/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="page page2" id="page2">
+            <div class="portfolio2">
+                <img src="/img/portfolio2.png" alt="2 번째 소개" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="page page3" id="page3">
+            <div class="portfolio3">
+                <img src="/img/portfolio3.png" alt="3 번째 소개" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="page page4" id="page4">
+            <div class="portfolio4">
+                <img src="/img/portfolio4.png" alt="4 번째 소개" width="100%" height="100%">
+            </div>
+        </div>
+
+        <div class="page page5" id="page5">
+            <div class="portfolio5">
+                <div class="portfolio5a"></div>
+                <div class="portfolio5b"></div>
+                <div class="portfolio5c"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
+</body>
+
+
+
+<script>
+    // 스크롤을 해당 페이지로 이동하는 함수
+    function scrollToPage(pageNumber) {
+        const page = document.getElementById(`page${pageNumber}`);
+        page.scrollIntoView({
+            behavior: 'smooth', // 부드러운 스크롤 효과
+            block: 'start' // 페이지의 상단으로 스크롤
+        });
+    }
+</script>

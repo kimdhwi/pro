@@ -1,0 +1,71 @@
+header{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    border: 2px solid #ff0000;
+}
+/* 드롭다운과 입력 필드 스타일 */
+div select,
+div input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* 드롭다운 */
+select {
+    background-color: white;
+    cursor: pointer;
+}
+
+/* 입력 필드 */
+input {
+    width: 200px;
+}
+
+/* 버튼 스타일 */
+button {
+    background-color: #3498db;
+    /* 파란색 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    /* 진한 파란색 */
+}
+
+/* 버튼 정렬 */
+div div {
+    text-align: center;
+    display: flex;
+    
+}
+
+
+.headerleft {
+    width: 25%;
+    border: 2px solid #ff0000;
+    /* 두께 2px, 실선, 검은색 */
+    font-size: 40px;
+
+}
+.headercenter{
+    width: 50%;
+    border: 2px solid #ff0000;
+    
+}
+.headerright{
+    width: 25%;
+    border: 2px solid #ff0000;
+    
+}
