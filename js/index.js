@@ -54,3 +54,6 @@ window.onscroll = function() {
         })
         .catch(error => console.error("Error loading HTML:", error));
 });
+
+
+fetch("https://example.com/header.html")
